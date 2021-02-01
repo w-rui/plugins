@@ -36,6 +36,12 @@ class WifiInfoFlutterMethodChannelHandler implements MethodChannel.MethodCallHan
       case "wifiIPAddress":
         result.success(wifiInfoFlutter.getWifiIPAddress());
         break;
+      case "wifiFreq":
+        result.success(wifiInfoFlutter.wifiFreq());
+        break;
+      case "wifiFreqType":
+        result.success(wifiInfoFlutter.wifiFreqType());
+        break;
       default:
         result.notImplemented();
         break;

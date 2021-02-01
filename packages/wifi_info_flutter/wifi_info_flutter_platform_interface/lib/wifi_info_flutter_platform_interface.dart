@@ -57,6 +57,16 @@ abstract class WifiInfoFlutterPlatform extends PlatformInterface {
     throw UnimplementedError('getWifiIP() has not been implemented.');
   }
 
+  /// Obtains the WiFi frequency, in MHz.
+  Future<int> getWiFiFreq() {
+    throw UnimplementedError('getWifiIP() has not been implemented.');
+  }
+
+  /// Obtains the WiFi frequency, eg: 2.4G, 5G.
+  Future<List<WiFiFreqType>> getWiFiFreqType() {
+    throw UnimplementedError('getWifiIP() has not been implemented.');
+  }
+
   /// Request to authorize the location service (Only on iOS).
   Future<LocationAuthorizationStatus> requestLocationServiceAuthorization(
       {bool requestAlwaysLocationUsage = false}) {

@@ -6,6 +6,10 @@ package io.flutter.plugins.wifi_info_flutter;
 
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import java.util.ArrayList;
+import java.util.List;
+import androidx.annotation.RequiresApi;
+import android.os.Build;
 
 /** Reports wifi information. */
 class WifiInfoFlutter {
@@ -31,6 +35,33 @@ class WifiInfoFlutter {
       bssid = wifiInfo.getBSSID();
     }
     return bssid;
+  }
+
+  List<String> wifiFreqType() {
+    final WifiInfo wifiInfo = getWifiInfo();
+    List<String> list = new ArrayList();
+
+    if (wifiInfo != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      int freq = wifiInfo.getFrequency();
+      boolean is24G = freq > 2000 && freq < 3000;
+      boolean is5G = freq > 4000 && freq < 6000;
+
+      if (is24G) list.add("2.4");
+      if (is5G) list.add("5");
+    }
+
+    return list;
+  }
+
+
+  Integer wifiFreq() {
+    final WifiInfo wifiInfo = getWifiInfo();
+
+    if (wifiInfo != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      return wifiInfo.getFrequency();
+    }
+
+    return null;
   }
 
   String getWifiIPAddress() {

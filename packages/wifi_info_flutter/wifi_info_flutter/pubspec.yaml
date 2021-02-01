@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  wifi_info_flutter_platform_interface: ^1.0.0
+  # wifi_info_flutter_platform_interface: ^1.0.0
+  wifi_info_flutter_platform_interface:
+    path: ../wifi_info_flutter_platform_interface
 
 dev_dependencies:
   mockito: ^4.1.1

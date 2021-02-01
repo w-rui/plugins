@@ -9,7 +9,7 @@ import 'package:wifi_info_flutter_platform_interface/wifi_info_flutter_platform_
 
 // Export enums from the platform_interface so plugin users can use them directly.
 export 'package:wifi_info_flutter_platform_interface/wifi_info_flutter_platform_interface.dart'
-    show LocationAuthorizationStatus;
+    show LocationAuthorizationStatus, WiFiFreqType;
 
 /// Checks WI-FI status and more.
 class WifiInfo {
@@ -53,6 +53,14 @@ class WifiInfo {
   /// Obtains the IP address of the connected wifi network
   Future<String> getWifiIP() {
     return _platform.getWifiIP();
+  }
+
+  Future<int> getWiFiFreq() {
+    return _platform.getWiFiFreq();
+  }
+
+  Future<List<WiFiFreqType>> getWiFiFreqType() {
+    return _platform.getWiFiFreqType();
   }
 
   /// Request to authorize the location service (Only on iOS).

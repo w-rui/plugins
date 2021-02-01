@@ -22,3 +22,11 @@ enum LocationAuthorizationStatus {
   /// Status unknown.
   unknown
 }
+
+/// the WiFi frequency type.
+enum WiFiFreqType {
+  /// 2.4G WiFi
+  freq2_4G,
+  /// 5G WiFi
+  freq5G
+}
