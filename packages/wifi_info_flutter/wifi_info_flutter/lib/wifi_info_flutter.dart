@@ -50,11 +50,11 @@ class WifiInfo {
     return _platform.getWifiIP();
   }
 
-  Future<int> getWiFiFreq() {
+  Future<int?> getWiFiFreq() {
     return _platform.getWiFiFreq();
   }
 
-  Future<List<WiFiFreqType>> getWiFiFreqType() {
+  Future<List<WiFiFreqType>?> getWiFiFreqType() {
     return _platform.getWiFiFreqType();
   }
 

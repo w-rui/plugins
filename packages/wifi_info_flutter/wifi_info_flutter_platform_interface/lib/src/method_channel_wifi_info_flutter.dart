@@ -32,13 +32,16 @@ class MethodChannelWifiInfoFlutter extends WifiInfoFlutterPlatform {
   }
 
   /// Obtains the WiFi frequency, in MHz.
-  Future<int> getWiFiFreq() {
-    return methodChannel.invokeMethod('wifiFreq');
+  Future<int?> getWiFiFreq() {
+    return methodChannel.invokeMethod<int>('wifiFreq');
   }
 
   /// Obtains the WiFi frequency, eg: 2.4G, 5G.
-  Future<List<WiFiFreqType>> getWiFiFreqType() async {
-    List types = await methodChannel.invokeMethod('wifiFreqType');
+  Future<List<WiFiFreqType>?> getWiFiFreqType() async {
+    List? types = await methodChannel.invokeMethod('wifiFreqType');
+    if (types == null)
+      return null;
+
     return types.map<WiFiFreqType>((e) {
       switch (e) {
         case "2.4": return WiFiFreqType.freq2_4G;
